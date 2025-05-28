@@ -4,7 +4,11 @@
 resource "google_compute_region_instance_template" "app" {
   name         = "app-template-terraform"
   description  = "This template is used to clone lizzo"
+  region       = google_compute_subnetwork.hqinternal.region
+  # or write region argument statically as
+  # region = "us-central1"
   machine_type = "e2-medium"
+
 
   # Create a new disk from an image and set as boot disk
   disk {
