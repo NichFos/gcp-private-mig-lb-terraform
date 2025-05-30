@@ -16,7 +16,7 @@ resource "google_compute_firewall" "ssh" {
 }
 
 
-resource "google_compute_firewall" "web-traffic" {
+resource "google_compute_firewall" "web_traffic" {
   name    = "${google_compute_network.main.name}-allow-web-traffic"
   network = google_compute_network.main.name
 
