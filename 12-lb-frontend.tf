@@ -13,6 +13,7 @@ resource "google_compute_address" "lb" {
 # Defines how incoming traffic is forwarded to the load balancer proxy based on port and protocol
 resource "google_compute_forwarding_rule" "lb" {
   name                  = "lb-forwarding-rule"
+  # region = "" (optional if provider default is set)
 
   # We are sending traffic to a HTTP Proxy as this is an application LB
   target                = google_compute_region_target_http_proxy.lb.self_link
