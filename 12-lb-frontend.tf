@@ -5,7 +5,7 @@
 # Resource: Reserve Regional Static IP Address
 resource "google_compute_address" "lb" {
   name   = "lb-static-ip"
-  region = "us-central1"
+  # region = "" (optional if provider default is set)
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_forwarding_rule
@@ -36,6 +36,7 @@ resource "google_compute_forwarding_rule" "lb" {
 # This resource's behavior takes place in the proxy only subnet
 resource "google_compute_region_target_http_proxy" "lb" {
   name    = "lb-http-proxy"
+  # region = "" (optional if provider default is set)
 
   # URL Map is declared below
   url_map = google_compute_region_url_map.lb.self_link
@@ -48,6 +49,8 @@ resource "google_compute_region_target_http_proxy" "lb" {
 # We only use one backend service here so we simply set a default service and have the URL map route all traffic to it.
 resource "google_compute_region_url_map" "lb" {
   name            = "lb-url-map"
+
+  # region = "us-central1"
   default_service = google_compute_region_backend_service.lb.self_link
 }
 

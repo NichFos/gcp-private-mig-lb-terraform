@@ -6,7 +6,7 @@ resource "google_compute_region_instance_template" "app" {
   description  = "This template is used to clone lizzo"
   region       = google_compute_subnetwork.hqinternal.region
   # or write region argument statically as
-  # region = "us-central1"
+  # region = "" (optional if provider default is set)
   machine_type = "e2-medium"
 
 

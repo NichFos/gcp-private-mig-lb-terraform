@@ -3,6 +3,7 @@
 # Note: without autoscaler the MIG will not provision VMs with this config
 resource "google_compute_region_autoscaler" "app" {
   name   = "app-autoscaler"
+  # region = "" (optional if provider default is set)
   target = google_compute_region_instance_group_manager.app.id
 
   autoscaling_policy {

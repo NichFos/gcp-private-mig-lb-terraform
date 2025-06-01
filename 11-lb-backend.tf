@@ -2,7 +2,8 @@
 # Resource: Regional Health Check
 resource "google_compute_region_health_check" "lb" {
   name                = "lb-health-check"
-  
+  # region = "us-central1"
+
   # How often in seconds the HC checks and waits for failure/success
   check_interval_sec  = 5
   timeout_sec         = 5
@@ -22,6 +23,7 @@ resource "google_compute_region_health_check" "lb" {
 # Resource: Regional Backend Service
 resource "google_compute_region_backend_service" "lb" {
   name                  = "lb-backend-service"
+  # region = "" (optional if provider default is set)
   
   # Backend service is for an application and uses HTTP
   protocol              = "HTTP"

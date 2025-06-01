@@ -4,6 +4,7 @@
 
 resource "google_compute_region_health_check" "app" {
   name                = "app-hc"
+  # region = "" (optional if provider default is set)
 
   # How often in seconds the HC checks and waits for failure/success
   check_interval_sec  = 5
