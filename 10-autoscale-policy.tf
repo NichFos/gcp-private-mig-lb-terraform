@@ -1,5 +1,6 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_autoscaler
 # Resource: MIG Autoscaling
+# Note: without autoscaler the MIG will not provision VMs with this config
 resource "google_compute_region_autoscaler" "app" {
   name   = "app-autoscaler"
   target = google_compute_region_instance_group_manager.app.id

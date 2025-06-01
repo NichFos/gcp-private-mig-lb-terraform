@@ -16,12 +16,12 @@ resource "google_compute_region_instance_group_manager" "app" {
   # Compute zones to be used for VM creation
   distribution_policy_zones = data.google_compute_zones.available.names
 
-  # Instance Template
+  # Instance Template argument for MIG
   version {
     instance_template = google_compute_region_instance_template.app.id
   }
 
-  # Named Port
+  # Set a port to be used by backend service
   named_port {
     name = "webserver"
     port = 80
