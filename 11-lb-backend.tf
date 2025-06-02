@@ -2,7 +2,7 @@
 # Resource: Regional Health Check
 resource "google_compute_region_health_check" "lb" {
   name                = "lb-health-check"
-  # region = "us-central1"
+  # region = "us-central1"                                      
 
   # How often in seconds the HC checks and waits for failure/success
   check_interval_sec  = 5

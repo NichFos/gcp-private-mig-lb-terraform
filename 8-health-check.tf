@@ -2,7 +2,7 @@
 # Resource: Regional Health Check
 
 
-resource "google_compute_region_health_check" "app" {
+resource "google_compute_region_health_check" "app" {         # Change name of google_compute_region_health_check resource "app" to a name of your choosing, preferably corressponding to region of your subnetwork(s) i.e. "virginia-app"  
   name                = "app-hc"
   # region = "" (optional if provider default is set)
 

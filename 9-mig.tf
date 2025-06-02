@@ -7,10 +7,10 @@ data "google_compute_zones" "available" {
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_region_instance_group_manager
 # Resource: Managed Instance Group
-resource "google_compute_region_instance_group_manager" "app" {
-  depends_on         = [google_compute_router_nat.iowa]
+resource "google_compute_region_instance_group_manager" "app" {      # Change name of resource google_compute_region_instance_group_manager "app" to a name of your choosing, preferably correlating to region of subnetwork i.e. "virginia-app"
+  depends_on         = [google_compute_router_nat.iowa]              # Change iowa part of google_compute_router_nat.iowa to name of nat you created in file 5
   name               = "app-mig"
-  base_instance_name = "app"
+  base_instance_name = "app"                                         # Change base instance name app to name of your choosing
   #region = "" (optional if provider default is set)
 
   # Compute zones to be used for VM creation
@@ -29,7 +29,7 @@ resource "google_compute_region_instance_group_manager" "app" {
 
   # Autohealing Config
   auto_healing_policies {
-    health_check      = google_compute_region_health_check.app.id
+    health_check      = google_compute_region_health_check.app.id     # Change app part of google_compute_region_health_check.app.id to the name of your healthcheck(s) in file 8
     initial_delay_sec = 300
   }
 }

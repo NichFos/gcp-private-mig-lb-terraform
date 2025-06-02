@@ -1,11 +1,7 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs
 provider "google" {
-  project     = "temp-project-453919"
-  region      = "us-central1"
-  credentials = "key.json"
+  project     = "temp-project-453919"  # Change name of project to whatever project you wish to use in your GCP account
+  region      = "us-central1"          # Change region name to region you wish to use i.e., Virginia us-east4, Finland europe-north1 etc. 
+  credentials = "key.json"             # Name credentials after project, and put the date that you created it ex., temp-project-453919-060225key.json 
 }
 
-# I'm doing this tonight while prepping my students for their sessions with Lizzo
-
-# comment there will be no diddy oil bootygasms here
-# Lizzo will be pegging Carlton and inducing a bootygasm deep in him with Chewbacca watching!
